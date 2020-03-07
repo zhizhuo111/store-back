@@ -1,10 +1,13 @@
 package com.pj.store.model;
 
+import jdk.nashorn.internal.objects.annotations.Constructor;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class User {
-    private Integer USER_ID;
+    private Long USER_ID;
     private String USER_USERNAME;
     private String USER_PASSWORD;
 

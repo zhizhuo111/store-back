@@ -11,6 +11,7 @@ import lombok.Data;
 public class Repository {
 
 	private Integer id;// 仓库ID
+	private String name;// 仓库名字
 	private String address;// 仓库地址
 	private String status;// 仓库状态
 	private String area;// 仓库面积

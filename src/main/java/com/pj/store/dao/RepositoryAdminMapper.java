@@ -2,6 +2,8 @@ package com.pj.store.dao;
 
 
 import com.pj.store.model.RepositoryAdmin;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -10,6 +12,8 @@ import java.util.List;
  * @author Ken
  *
  */
+@Repository
+@Mapper
 public interface RepositoryAdminMapper {
 
 	/**

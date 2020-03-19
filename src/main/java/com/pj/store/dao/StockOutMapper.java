@@ -12,4 +12,10 @@ import java.util.List;
 public interface StockOutMapper {
 
     List<StockOutDO> selectByRepositoryIDAndDate(Integer repositoryID, Date startDate, Date endDate);
+
+    /**
+     * 进行出库操作
+     * @param stockOutDO
+     */
+    void insert(StockOutDO stockOutDO);
 }

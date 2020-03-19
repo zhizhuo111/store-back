@@ -15,5 +15,14 @@ public interface StockRecordManageService {
      */
     Map<String, Object> selectStockRecord(Integer repositoryID, String startDateStr, String endDateStr, String searchType) throws ParseException;
 
+    /**
+     * 货物     * @param supplierID
+     * @param goodsID
+     * @param repositoryIDStr
+     * @param number
+     * @return
+     */
     boolean stockInOperation(Integer supplierID, Integer goodsID, Integer repositoryIDStr, long number);
+
+    boolean stockOutOperation(Integer customerID, Integer goodsID, Integer repositoryID, long number);
 }

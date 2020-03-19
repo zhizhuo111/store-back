@@ -15,6 +15,8 @@ import java.util.Map;
 @RestController
 @RequestMapping("/stockRecordManage")
 public class StockRecordManageController {
+    @Autowired
+    StockRecordManageService stockRecordManageService;
     /**
      * 货物入库操作
      *
@@ -92,8 +94,65 @@ public class StockRecordManageController {
 
         return result;
     }
-    @Autowired
-    StockRecordManageService stockRecordManageService;
+    /**
+     * 货物出库操作
+     *
+     * @param customerID      客户ID
+     * @param goodsID         货物ID
+     * @param repositoryIDStr 仓库ID
+     * @param number          出库数量
+     * @return 返回一个map，key为result的值表示操作是否成功
+     */
+    @RequestMapping(value = "stockOut", method = RequestMethod.POST)
+    public
+    @ResponseBody
+    boolean stockOut(@RequestParam("customerID") Integer customerID,
+                                 @RequestParam("goodsID") Integer goodsID,
+                                 @RequestParam(value = "repositoryID", required = false) String repositoryIDStr,
+                                 @RequestParam("number") long number){
+        System.out.println(customerID);
+        System.out.println(goodsID);
+        System.out.println(repositoryIDStr);
+        System.out.println(number);
+        // 初始化 Response
+//        Response responseContent = ResponseFactory.newInstance();
+//        String result = Response.RESPONSE_RESULT_ERROR;
+//        boolean authorizeCheck = true;
+//        boolean argumentCheck = true;
+        Integer repositoryID = null;
+
+        // 参数检查
+        if (repositoryIDStr != null) {
+                repositoryID = Integer.valueOf(repositoryIDStr);
+        }
+
+//        // 获取 session 中的信息
+//        Subject currentUser = SecurityUtils.getSubject();
+//        Session session = currentUser.getSession();
+//        UserInfoDTO userInfo = (UserInfoDTO) session.getAttribute("userInfo");
+//        String personInCharge = userInfo == null ? "none" : userInfo.getUserName();
+//        Integer repositoryIDBelong = userInfo == null ? -1 : userInfo.getRepositoryBelong();
+//
+//        // 设置非管理员请求的仓库ID
+//        if (!currentUser.hasRole("systemAdmin")) {
+//            if (repositoryIDBelong < 0) {
+//                authorizeCheck = false;
+//                responseContent.setResponseMsg("You are not authorized");
+//            } else {
+//                repositoryID = repositoryIDBelong;
+//            }
+//        }
+
+        boolean result = stockRecordManageService.stockOutOperation(customerID, goodsID, repositoryID, number);
+//        if (authorizeCheck && argumentCheck) {
+//            if (stockRecordManageService.stockOutOperation(customerID, goodsID, repositoryID, number, personInCharge))
+//                result = Response.RESPONSE_RESULT_SUCCESS;
+//        }
+
+        // 设置 Response
+//        responseContent.setResponseResult(result);
+        return result;
+    }
 
     /**
      *

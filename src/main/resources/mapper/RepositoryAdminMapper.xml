@@ -18,7 +18,14 @@
 	<select id="selectAll" resultMap="repositoryAdmin">
 		select
 			REPO_ADMIN_ID,
-			REPO_NAME
+-- 			REPO_NAME,
+			REPO_ADMIN_NAME,
+			REPO_ADMIN_SEX,
+			REPO_ADMIN_TEL,
+			REPO_ADMIN_ADDRESS,
+			REPO_ADMIN_BIRTH,
+			REPO_ADMIN_REPOID
+
 		from
 			wms_repo_admin
 	</select>

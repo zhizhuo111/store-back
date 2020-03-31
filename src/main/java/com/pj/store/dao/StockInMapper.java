@@ -25,4 +25,11 @@ public interface StockInMapper {
 
     void insert(StockInDO stockInDO);
 
+	/**
+	 * 选择指定供应商ID相关的入库记录
+	 *
+	 * @param supplierID 指定的供应商ID
+	 * @return 返回指定供应商相关的入库记录
+	 */
+	List<StockInDO> selectBySupplierId(Integer supplierID);
 }

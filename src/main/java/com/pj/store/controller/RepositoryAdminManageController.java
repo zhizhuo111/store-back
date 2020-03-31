@@ -11,7 +11,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/repositoryAdminManage")
-public class RepositoryAdminManageHandler {
+public class RepositoryAdminManageController {
     @Autowired
     RepositoryAdminManageService repositoryAdminManageService;
     // 查询类型

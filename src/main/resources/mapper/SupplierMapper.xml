@@ -40,7 +40,7 @@
 			s.SUPPLIER_ID = #{id}
 	</select>
 	
-	<select id="selectBuName" resultMap="supplier">
+	<select id="selectByName" resultMap="supplier">
 		select
 			s.SUPPLIER_ID,
 			s.SUPPLIER_NAME,

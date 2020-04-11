@@ -32,4 +32,14 @@ public interface StockInMapper {
 	 * @return 返回指定供应商相关的入库记录
 	 */
 	List<StockInDO> selectBySupplierId(Integer supplierID);
+
+	List<StockInDO> selectByGoodID(Integer goodsId);
+
+	/**
+	 * 选择指定仓库ID相关的入库记录
+	 *
+	 * @param repositoryID 指定的仓库ID
+	 * @return 返回指定仓库相关的入库记录
+	 */
+	List<StockInDO> selectByRepositoryID(Integer repositoryID);
 }

@@ -7,7 +7,7 @@
 	
 	<resultMap type="com.pj.store.model.Repository" id="repository">
 		<id property="id" column="REPO_ID"/>
-		<id property="name" column="REPO_NAME"/>
+		<result property="name" column="REPO_NAME"/>
 		<result property="address" column="REPO_ADDRESS"/>
 		<result property="status" column="REPO_STATUS"/>
 		<result property="area" column="REPO_AREA"/>
@@ -78,8 +78,8 @@
 	</select>
 
 	<insert id="insert" keyProperty="id" useGeneratedKeys="true">
-		insert into wms_respository(REPO_ADDRESS,REPO_STATUS,REPO_AREA,REPO_DESC)
-		values(#{address},#{status},#{area},#{desc})
+		insert into wms_respository(REPO_ADDRESS,REPO_STATUS,REPO_AREA,REPO_DESC,REPO_NAME)
+		values(#{address},#{status},#{area},#{desc},#{name})
 	</insert>
 
 	<insert id="insertbatch">

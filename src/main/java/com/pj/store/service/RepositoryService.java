@@ -15,4 +15,16 @@ import java.util.Map;
  */
 public interface RepositoryService {
     List<Repository> selectAll();
+
+	List<Repository> selectById(Integer valueOf);
+
+	List<Repository> selectByAddress(String keyword);
+
+	Map<String, Object> selectUnassign();
+
+	boolean addRepository(Repository repository);
+
+	boolean updateRepository(Repository repository);
+
+	boolean deleteRepository(Integer repositoryID);
 }

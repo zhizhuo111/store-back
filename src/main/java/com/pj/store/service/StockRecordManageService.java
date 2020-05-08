@@ -22,7 +22,7 @@ public interface StockRecordManageService {
      * @param number
      * @return
      */
-    boolean stockInOperation(Integer supplierID, Integer goodsID, Integer repositoryIDStr, long number);
+    boolean stockInOperation(Integer supplierID, Integer goodsID, Integer repositoryIDStr, long number, String userName);
 
     boolean stockOutOperation(Integer customerID, Integer goodsID, Integer repositoryID, long number);
 }

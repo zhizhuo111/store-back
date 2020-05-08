@@ -14,4 +14,12 @@ public class UserServiceImpl {
     public List<User> getAll(){
         return userDao.getAll();
     }
+
+    public boolean insert(String userName, String password){
+        if(!userName.equals("") && !password.equals("")){
+            userDao.insert(userName, password);
+            return true;
+        }
+        return false;
+    }
 }

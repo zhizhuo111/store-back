@@ -32,7 +32,17 @@ public class UserController {
         System.out.println(result);
         return result;
     }
-
+    @RequestMapping("register")
+    @ResponseBody
+    public boolean register(String userName, String password){
+        System.out.println(userName);
+        System.out.println(password);
+        boolean result=false;
+        if( !userName.equals("") && !password.equals("") ){
+            result = userServiceImpl.insert(userName, password);
+        }
+        return result;
+    }
 }
 
 

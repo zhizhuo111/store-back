@@ -100,13 +100,15 @@ public class StockRecordManageServiceImpl implements StockRecordManageService {
      * @return
      */
     @Override
-    public boolean stockInOperation(Integer supplierID, Integer goodsID, Integer repositoryID, long number) {
-        if (repositoryID == null)
+    public boolean stockInOperation(Integer supplierID, Integer goodsID, Integer repositoryID, long number, String userName) {
+        if (repositoryID == null){
             return false;
+        }
 
         // 检查入库数量有效性
-        if (number < 0)
+        if (number < 0){
             return false;
+        }
 
         boolean isSuccess = false;
         try {
@@ -121,7 +123,7 @@ public class StockRecordManageServiceImpl implements StockRecordManageService {
                 stockInDO.setNumber(number);
                 stockInDO.setTime(new Date());
                 stockInDO.setRepositoryID(repositoryID);
-                stockInDO.setPersonInCharge("admin");
+                stockInDO.setPersonInCharge(userName);
                 System.out.println("----------------");
                 System.out.println(stockInDO);
                 stockinMapper.insert(stockInDO);

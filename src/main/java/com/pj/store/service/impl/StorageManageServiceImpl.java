@@ -117,16 +117,19 @@ public class StorageManageServiceImpl implements StorageManageService {
             // validate
             Goods goods = goodsMapper.selectById(goodsID);
             Repository repository = repositoryMapper.selectByID(repositoryID);
-            if (goods == null)
+            if (goods == null) {
                 isAvailable = false;
-            if (repository == null)
+            }
+            if (repository == null) {
                 isAvailable = false;
-            if (number < 0)
+            }
+            if (number < 0) {
                 isAvailable = false;
+            }
             List<Storage> storageList = storageMapper.selectByGoodsIDAndRepositoryID(goodsID, repositoryID);
-            if (!(storageList != null && storageList.isEmpty()))
+            if (!(storageList != null && storageList.isEmpty())) {
                 isAvailable = false;
-
+            }
             if (isAvailable) {
                 // insert
                 Storage storage = new Storage();

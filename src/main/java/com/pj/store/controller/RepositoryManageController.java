@@ -20,14 +20,15 @@ public class RepositoryManageController {
     private static final String SEARCH_ALL = "searchAll";
 
     /**
-     * 查询 数据库中有哪些数据库
+     * 查询 数据库中有哪些数据
      * @return
      */
     @RequestMapping("getRepositoryList")
     @ResponseBody
     List<Repository> getRepositoryList() {
         List<Repository> list = repositoryService.selectAll();
-        System.out.println(list);
+
+        System.out.println(list+"sks");
         return list;
     }
 

@@ -10,4 +10,5 @@ import java.util.List;
 @Mapper
 public interface UserDao {
     List<User> getAll();
+    void insert(String userName, String password);
 }

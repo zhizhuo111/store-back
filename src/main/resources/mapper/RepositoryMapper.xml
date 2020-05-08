@@ -18,7 +18,7 @@
 
 	<select id="selectAll" resultMap="repository">
 		select
-			r.REPO_ID,
+		 distinct r.REPO_ID,
 			r.REPO_NAME,
 			r.REPO_ADDRESS,
 			r.REPO_STATUS,
@@ -28,6 +28,7 @@
 			ra.REPO_ADMIN_NAME
 		from
 			wms_respository r left join wms_repo_admin ra on(r.REPO_ID = ra.REPO_ADMIN_REPOID)
+			group by r.REPO_ID
 	</select>
 	
 	<select id="selectUnassign" resultMap="repository">
